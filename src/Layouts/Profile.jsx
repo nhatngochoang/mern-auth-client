@@ -2,6 +2,7 @@ import { useState } from 'react';
 import Appbar from '../components/Appbar/Appbar.jsx'
 import Sidebar from '../components/Sidebar/Sidebar.jsx';
 import Feed from '../components/Feed/Feed.jsx'
+import { default as ProfileComponent } from '../components/Profile/Profile.jsx'
 
 const Profile = () => {
    const [sidebar, setSidebar] = useState(false);
@@ -25,6 +26,9 @@ const Profile = () => {
                <Feed />
             </div>
             {/* profile */}
+            <div className="profilelayout_content-profile">
+               <ProfileComponent />
+            </div>
          </div>
       </div>
    );
