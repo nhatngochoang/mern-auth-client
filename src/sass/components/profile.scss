@@ -43,8 +43,10 @@ body {
    }
    .profilelayout_content-feed {
       width: 60%;
+      order: 1;
    }
    .profilelayout_content-profile {
       margin-right: 5vw;
+      order: 2;
    }
 }

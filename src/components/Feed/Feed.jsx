@@ -5,7 +5,7 @@ const Feed = () => {
       <div className="feed">
          {/* date */}
          <div className="feed_date">
-            <Avatar />
+            <Avatar size="medium" />
             <p>2/22/2008</p>
          </div>
          {/* img */}

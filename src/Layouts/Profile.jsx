@@ -21,13 +21,13 @@ const Profile = () => {
          </div>
          {/* content */}
          <div className="profilelayout_content">
-            {/* feed */}
-            <div className="profilelayout_content-feed">
-               <Feed />
-            </div>
             {/* profile */}
             <div className="profilelayout_content-profile">
                <ProfileComponent />
+            </div>
+            {/* feed */}
+            <div className="profilelayout_content-feed">
+               <Feed />
             </div>
          </div>
       </div>
