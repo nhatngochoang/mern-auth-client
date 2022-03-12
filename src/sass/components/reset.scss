@@ -1,0 +1,11 @@
+// ➡ to fix Stylesheet http://localhost:3000/auth/reset-password/assets/css/main.css không tải được vì kiểu MIME của nó, "text/html", không phải là "text/css".
+@import "../../../public/assets/css/main.scss";
+
+.reset_p {
+   text-align: center;
+   color: $yellow;
+   font-weight: 300;
+   margin-top: 3em;
+   text-transform: capitalize;
+   cursor: pointer;
+}
