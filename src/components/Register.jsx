@@ -53,7 +53,7 @@ const Register = () => {
             bodyClassName: "toast-failed",
          });
       try {
-         const res = await axios.post("/api/auth/register", {
+         const res = await axios.post(`${process.env.REACT_APP_API_URL}/auth/register`, {
             name,
             email,
             password,

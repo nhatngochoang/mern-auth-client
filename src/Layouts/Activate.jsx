@@ -15,7 +15,7 @@ const Activate = ({ history }) => {
       if (activation_token) {
          const activateUser = async () => {
             try {
-               const res = await axios.post("/api/auth/activation", {
+               const res = await axios.post(`${process.env.REACT_APP_API_URL}/auth/activation`, {
                   activation_token,
                });
                toast(res.data.msg, {
