@@ -11,7 +11,7 @@ function App() {
          <Routes>
             <Route path='/' exact element={isLoggedIn ? <Profile /> : <Auth />} />
             <Route path='/auth/reset-password/:token' exact element={<Reset />} />
-            <Route path='/api/auth/activate/:activate_token' exact element={<Activate />} />
+            <Route path='/api/auth/activate/:activation_token' exact element={<Activate />} />
          </Routes>
       </Router>
    );
