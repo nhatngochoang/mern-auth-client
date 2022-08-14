@@ -6,6 +6,7 @@ import { toast, ToastContainer } from "react-toastify";
 import { AuthContext } from '../context/AuthContext.js';
 import { isEmail, isEmpty } from "../helper/validate.js";
 import Input from './Input/Input.jsx';
+import GoogleLogin from "react-google-login";
 
 const initialState = {
    name: "",
@@ -52,6 +53,27 @@ const Login = () => {
       }
    };
 
+   const googleSuccess = async (res) => {
+      const token = res?.tokenId;
+      try {
+         await axios.post(`${process.env.REACT_APP_API_URL}/auth/google_signing`, { tokenId: token });
+         localStorage.setItem("_appSignging", true);
+         dispatch({ type: "SIGNING" });
+      } catch (err) {
+         toast(err.response.data.msg, {
+            className: "toast-failed",
+            bodyClassName: "toast-failed",
+         });
+      }
+   };
+
+   const googleError = () => {
+      toast("There was an error signing in, please try again later.", {
+         className: "toast-failed",
+         bodyClassName: "toast-failed",
+      });
+   };
+
    return (<>
       <ToastContainer />
       <form className="login" onSubmit={login}>
@@ -66,9 +88,21 @@ const Login = () => {
          />
          <div className="login_btn">
             <button type="submit">login</button>
-            <button className="btn-alt">
-               sign in <FcGoogle />
-            </button>
+            <GoogleLogin
+               clientId={process.env.REACT_APP_G_CLIENT_ID}
+               render={(renderProps) => (
+                  <button
+                     className="btn-alt"
+                     onClick={renderProps.onClick}
+                     disabled={renderProps.disabled}
+                  >
+                     sign in <FcGoogle />
+                  </button>
+               )}
+               cookiePolicy={"single_host_origin"}
+               onSuccess={googleSuccess}
+               onFailure={googleError}
+            />
          </div>
       </form>
    </>
